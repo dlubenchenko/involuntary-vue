@@ -14,7 +14,34 @@
               aria-label="Basic example"
             >
               <my-button
-                v-for="(item, i) of refundButtons"
+                v-for="(item, i) of refundButtonsBasic"
+                :key="i"
+                :item="item"
+                @buttonValue="refundHandler"
+              />
+            </div>
+
+            <div
+              v-if="choice === 'Full refund'"
+              class="btn-group-vertical mt-3"
+              role="group"
+              aria-label="Basic example"
+            >
+              <my-button
+                v-for="(item, i) of refundButtonsFull"
+                :key="i"
+                :item="item"
+                @buttonValue="refundHandler"
+              />
+            </div>
+            <div
+              v-else-if="choice === 'Partial refund'"
+              class="btn-group-vertical mt-3"
+              role="group"
+              aria-label="Basic example"
+            >
+              <my-button
+                v-for="(item, i) of refundButtonsPartial"
                 :key="i"
                 :item="item"
                 @buttonValue="refundHandler"
@@ -23,9 +50,12 @@
           </div>
         </div>
         <div class="col-md mt-3">
-          <my-text-area />
+          <my-text-area :item="'для ' + choice"/>
         </div>
       </div>
+        <div class="row mt-5">
+          <my-button :item="'ТИЦЬ'"/>
+        </div>
     </div>
   </div>
 </template>
@@ -36,11 +66,19 @@ import MyButton from "../components/UI/MyButton.vue";
 export default {
   components: { MyTextArea, MyButton },
   data: () => ({
-    refundButtons: ["Full refund", "Partial refund"],
+    refundButtonsBasic: ["Full refund", "Partial refund"],
+    refundButtonsFull: ["Full refund", "Reissued involuntary", "Reissued voluntary"],
+    refundButtonsPartial: [
+      "Partial refund",
+      "Reissued involuntary",
+      "Reissued voluntary",
+    ],
+    choice: ''
   }),
   methods: {
     refundHandler(e) {
-      console.log(e);
+      if(e === 'Full refund' || e === 'Partial refund')
+      this.choice = e
     },
   },
 };

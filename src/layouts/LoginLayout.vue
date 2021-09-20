@@ -1,9 +1,6 @@
 <template>
-    <div class="login row">
-        <div class="col">
+    <div class="login">
             <router-view/>
-        </div>
-        <div class="col"></div>
     </div>
 </template>
 

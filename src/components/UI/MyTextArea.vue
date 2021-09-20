@@ -1,17 +1,18 @@
 <template>
   <div>
-    <label for="exampleFormControlTextarea1">Вставити строку ...</label>
+    <label for="exampleFormControlTextarea1">Вставити строку <b>{{ item }}</b></label>
     <textarea
       class="form-control"
       id="exampleFormControlTextarea1"
       rows="3"
-      placeholder="Lorem ipsum dolor sit amet."
     ></textarea>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ['item']
+};
 </script>
 
 <style scoped>

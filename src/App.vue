@@ -23,6 +23,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import './assets/main.css';
 body {
 	font-family: 'Comfortaa', cursive;
 }

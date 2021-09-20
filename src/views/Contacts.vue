@@ -5,10 +5,10 @@
       <hr />
     </div>
     <div>
-      <v-select :options="options"></v-select>
+      <v-select class="contacts-output" :options="options"></v-select>
     </div>
     <div class="mt-4">
-      <my-collapse :options="options"/>
+      <my-collapse class="contacts-output" :options="options"/>
     </div>
   </div>
 </template>
@@ -19,10 +19,13 @@ import MyCollapse from '../components/UI/MyCollapse.vue'
 export default {
   components: { MyCollapse },
   data: () => ({
-    options: ["foo", "bar", "baz", 'led', 'lwo'],
+    options: ["UA", "RU", "USA", 'DE', 'KZ'],
   }),
 }
 </script>
 
 <style>
+.contacts-output {
+  margin: 0 auto;
+}
 </style>

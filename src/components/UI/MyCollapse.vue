@@ -1,33 +1,33 @@
 <template>
   <div>
-    <div v-for="(opt, i) of options" :key="i" class="accordion" id="accordionExample">
-      <div class="card">
-        <div class="card-header" :id="'heading' + i">
+    <div class="accordion" id="accordionExample">
+      <div class="card" v-for="card of options" :key="card">
+        <div class="card-header" id="headingOne">
           <h2 class="mb-0">
             <button
-              class="btn btn-link btn-block text-left"
+              class="btn btn-link btn-block text-left text-center"
               type="button"
               data-toggle="collapse"
-              :data-target="'#' + opt"
-              :aria-expanded="i === 0 ? true : false"
-              :aria-controls="opt"
-              active-class="collapsed"
+              :data-target="'#' + card"
+              aria-expanded="false"
+              :aria-controls="card"
+              active-class="show"
               exact
             >
-              Collapsible Group Item #{{ i + 1 }}
+              <b>{{ card }}</b>
             </button>
           </h2>
         </div>
 
         <div
-          :id="opt"
-          :class="i === 0 ? 'collapse show' : 'collapse'"
-          :aria-labelledby="'heading' + i"
+          :id="card"
+          class="collapse"
+          aria-labelledby="headingOne"
           data-parent="#accordionExample"
-          exact
         >
           <div class="card-body">
-            {{opt}}
+            Some placeholder content for the first accordion panel. This panel
+            is shown by default, thanks to the <code>.show</code> class.
           </div>
         </div>
       </div>
@@ -37,9 +37,9 @@
 
 <script>
 export default {
-    props: ['options']
+  props: ["options"],
 };
 </script>
 
-<style scoped>
+<style>
 </style>

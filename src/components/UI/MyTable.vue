@@ -1,7 +1,7 @@
 <template>
   <div>
-    <table class="table table-hover">
-      <thead>
+    <table class="table table-hover sticky">
+      <thead class="thead-dark">
         <tr>
           <th scope="col">#</th>
           <th scope="col" v-for="(item, i) of Object.keys(items[0])" :key="i">
